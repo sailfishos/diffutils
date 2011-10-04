@@ -1,0 +1,160 @@
+* Tue Feb 16 2010 Anas Nashif <anas.nashif@intel.com> - 2.8.1
+- Fixed compile warnings
+
+* Fri Sep 12 2008 Yi Yang <yi.y.yang@intel.com> 2.8.1
+- Remove installation warnings of info files
+
+* Wed Jul 23 2008 Martin Xu <martin.xu@intel.com>
+- add %doc to man file
+
+* Wed Feb 13 2008 Tim Waugh <twaugh@redhat.com> 2.8.1-21
+- Rebuild for GCC 4.3.
+
+* Wed Jan  2 2008 Tim Waugh <twaugh@redhat.com> 2.8.1-20
+- Converted spec file to UTF-8 (bug #225696).
+- Fixed summary (bug #225696).
+- Fixed PreReq (bug #225696).
+- Removed Prefix (bug #225696).
+- Fixed build root (bug #225696).
+- Avoid %%makeinstall (bug #225696).
+- Fixed license tag (bug #225696).
+
+* Tue Nov  6 2007 Tim Waugh <twaugh@redhat.com> 2.8.1-19
+- Rebuilt.
+
+* Tue Nov  6 2007 Tim Waugh <twaugh@redhat.com> 2.8.1-18
+- Fixed multibyte speed improvement patch (bug #363831).
+
+* Tue Aug 14 2007 Tim Waugh <twaugh@redhat.com> 2.8.1-17
+- Multibyte speed improvement (bug #252117).
+
+* Mon Jan 22 2007 Tim Waugh <twaugh@redhat.com> 2.8.1-16
+- Make scriptlet unconditionally succeed (bug #223683).
+
+* Wed Jul 12 2006 Jesse Keating <jkeating@redhat.com> - 2.8.1-15.2.2
+- rebuild
+
+* Fri Feb 10 2006 Jesse Keating <jkeating@redhat.com> - 2.8.1-15.2.1
+- bump again for double-long bug on ppc(64)
+
+* Tue Feb 07 2006 Jesse Keating <jkeating@redhat.com> - 2.8.1-15.2
+- rebuilt for new gcc4.1 snapshot and glibc changes
+
+* Fri Dec 09 2005 Jesse Keating <jkeating@redhat.com>
+- rebuilt
+
+* Wed Apr  6 2005 Tim Waugh <twaugh@redhat.com> 2.8.1-15
+- Fixed sdiff exit code handling (bug #152967).
+
+* Wed Mar  2 2005 Tim Waugh <twaugh@redhat.com> 2.8.1-14
+- Rebuild for new GCC.
+
+* Wed Feb  9 2005 Tim Waugh <twaugh@redhat.com> 2.8.1-13
+- Rebuilt.
+
+* Tue Jun 15 2004 Elliot Lee <sopwith@redhat.com>
+- rebuilt
+
+* Fri Feb 13 2004 Elliot Lee <sopwith@redhat.com>
+- rebuilt
+
+* Thu Jan  8 2004 Tim Waugh <twaugh@redhat.com> 2.8.1-10
+- Fix mistaken use of '|' instead of '||'.
+
+* Sat Oct 25 2003 Tim Waugh <twaugh@redhat.com> 2.8.1-9
+- Rebuilt.
+
+* Tue Jun 17 2003 Tim Waugh <twaugh@redhat.com> 2.8.1-8
+- Rebuilt.
+
+* Wed Jun 04 2003 Elliot Lee <sopwith@redhat.com>
+- rebuilt
+
+* Wed Jan 22 2003 Tim Powers <timp@redhat.com>
+- rebuilt
+
+* Tue Nov 19 2002 Tim Waugh <twaugh@redhat.com> 2.8.1-5
+- i18n patch.
+
+* Tue Oct 22 2002 Tim Waugh <twaugh@redhat.com> 2.8.1-4
+- Ship translations.
+
+* Fri Jun 21 2002 Tim Powers <timp@redhat.com>
+- automated rebuild
+
+* Thu May 23 2002 Tim Powers <timp@redhat.com>
+- automated rebuild
+
+* Mon Apr 22 2002 Tim Waugh <twaugh@redhat.com> 2.8.1-1
+- 2.8.1.
+- No longer need immunix-owl-tmp patch.
+
+* Wed Feb 27 2002 Tim Waugh <twaugh@redhat.com> 2.7.2-5
+- Rebuild in new environment.
+
+* Wed Jan 09 2002 Tim Powers <timp@redhat.com>
+- automated rebuild
+
+* Fri Nov 02 2001 Tim Waugh <twaugh@redhat.com> 2.7.2-3
+- Make sure %%post scriplet doesn't fail if --excludedocs is used.
+
+* Fri Jun 01 2001 Tim Waugh <twaugh@redhat.com> 2.7.2-2
+- Install diff.1, since it's no longer in man-pages.
+
+* Fri Mar 30 2001 Tim Waugh <twaugh@redhat.com> 2.7.2-1
+- 2.7.2.
+
+* Wed Jul 12 2000 Prospector <bugzilla@redhat.com>
+- automatic rebuild
+
+* Thu Jul 06 2000 Trond Eivind Glomsrød <teg@redhat.com>
+- fix %%changelog entries (escape them)
+- update source location
+- remove manual stripping
+- add URL
+
+* Tue Jun 06 2000 Than Ngo <than@redhat.de>
+- add %%defattr
+- use rpm macros
+
+* Wed May 31 2000 Ngo Than <than@redhat.de>
+- put man pages and info files in correct place
+- cleanup specfile
+
+* Thu Feb 03 2000 Preston Brown <pbrown@redhat.com>
+- rebuild to gzip man pages.
+
+* Mon Apr 19 1999 Jeff Johnson <jbj@redhat.com>
+- man pages not in %%files.
+- but avoid conflict for diff.1
+
+* Sun Mar 21 1999 Cristian Gafton <gafton@redhat.com> 
+- auto rebuild in the new build environment (release 14)
+
+* Sun Mar 14 1999 Jeff Johnson <jbj@redhat.com>
+- add man pages (#831).
+- add %%configure and Prefix.
+
+* Thu Dec 17 1998 Cristian Gafton <gafton@redhat.com>
+- build for glibc 2.1
+
+* Tue Jul 14 1998 Bill Kawakami <billk@home.com>
+- included the four man pages stolen from Slackware
+
+* Tue May 05 1998 Prospector System <bugs@redhat.com>
+- translations modified for de, fr, tr
+
+* Sun May 03 1998 Cristian Gafton <gafton@redhat.com>
+- fixed spec file to reference/use the $RPM_BUILD_ROOT always
+    
+* Wed Dec 31 1997 Otto Hammersmith <otto@redhat.com>
+- fixed where it looks for 'pr' (/usr/bin, rather than /bin)
+
+* Fri Oct 17 1997 Donnie Barnes <djb@redhat.com>
+- added BuildRoot
+
+* Sun Sep 14 1997 Erik Troan <ewt@redhat.com>
+- uses install-info
+
+* Mon Jun 02 1997 Erik Troan <ewt@redhat.com>
+- built against glibc

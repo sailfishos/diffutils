@@ -1,0 +1,13 @@
+Index: diffutils-2.8.1/src/util.c
+===================================================================
+--- diffutils-2.8.1.orig/src/util.c
++++ diffutils-2.8.1/src/util.c
+@@ -215,7 +215,7 @@ begin_output (void)
+ 		close (pipes[0]);
+ 	      }
+ 
+-	    execl (pr_program, pr_program, "-h", name, 0);
++	    execl (pr_program, pr_program, "-h", name, NULL);
+ 	    _exit (errno == ENOEXEC ? 126 : 127);
+ 	  }
+ 	else

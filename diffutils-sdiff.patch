@@ -1,0 +1,12 @@
+--- diffutils-2.8.1/src/sdiff.c.sdiff	2005-04-06 14:59:26.000000000 +0100
++++ diffutils-2.8.1/src/sdiff.c	2005-04-06 15:02:36.000000000 +0100
+@@ -724,7 +724,8 @@
+ 	if (! interact_ok)
+ 	  exiterr ();
+ 
+-	ck_editor_status (werrno, wstatus);
++	if (!WIFEXITED(wstatus))
++	  ck_editor_status (werrno, wstatus);
+ 	untrapsig (0);
+ 	checksigs ();
+ 	exit (WEXITSTATUS (wstatus));
