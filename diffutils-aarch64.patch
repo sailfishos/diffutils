@@ -1,0 +1,19 @@
+diff -urN diffutils-3.2/config/config.sub diffutils-3.2-aarch64/config/config.sub
+--- diffutils-3.2/config/config.sub	2011-08-28 05:55:52.000000000 -0600
++++ diffutils-3.2-config/config/config.sub	2012-10-09 10:48:36.796650590 -0600
+@@ -247,6 +247,7 @@
+ 	# Some are omitted here because they have special meanings below.
+ 	1750a | 580 \
+ 	| a29k \
++        | aarch64 | aarch64_be \
+ 	| alpha | alphaev[4-8] | alphaev56 | alphaev6[78] | alphapca5[67] \
+ 	| alpha64 | alpha64ev[4-8] | alpha64ev56 | alpha64ev6[78] | alpha64pca5[67] \
+ 	| am33_2.0 \
+@@ -354,6 +355,7 @@
+ 	# Recognize the basic CPU types with company name.
+ 	580-* \
+ 	| a29k-* \
++        | aarch64-* | aarch64_be-* \
+ 	| alpha-* | alphaev[4-8]-* | alphaev56-* | alphaev6[78]-* \
+ 	| alpha64-* | alpha64ev[4-8]-* | alpha64ev56-* | alpha64ev6[78]-* \
+ 	| alphapca5[67]-* | alpha64pca5[67]-* | arc-* \

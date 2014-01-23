@@ -14,6 +14,7 @@ Patch0: diffutils-2.8.4-i18n.patch
 Patch1: diffutils-2.8.1-badc.patch
 Patch2: diffutils-sdiff.patch
 Patch3: diffutils-2.8.1-null.patch
+Patch4: diffutils-aarch64.patch
 License: GPLv2+
 Requires(post): /sbin/install-info
 Requires(preun): /sbin/install-info
@@ -38,6 +39,7 @@ Install diffutils if you need to compare text files.
 %patch1 -p1 -b .badc
 %patch2 -p1 -b .sdiff
 %patch3 -p1
+%patch4 -p1
 
 %build
 %configure
