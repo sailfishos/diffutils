@@ -1,7 +1,7 @@
 #specfile originally created for Fedora, modified for Moblin Linux
 Summary: A GNU collection of diff utilities
 Name: diffutils
-# NOTE: diffutils changed to GPLv3 from version 2.0 thus the old version is used.
+# NOTE: diffutils changed to GPLv3 from version 2.9 thus the old version is used.
 Version: 2.8.1
 Release: 21
 License: GPLv2+
