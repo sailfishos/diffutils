@@ -33,6 +33,7 @@ Install diffutils if you need to compare text files.
 
 %package doc
 Summary:         Documentation for diff utilities
+Requires: %{name} = %{version}
 Requires(post):  /sbin/install-info
 Requires(preun): /sbin/install-info
 
