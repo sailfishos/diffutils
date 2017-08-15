@@ -1,8 +1,10 @@
 #specfile originally created for Fedora, modified for Moblin Linux
 Summary: A GNU collection of diff utilities
 Name: diffutils
+# NOTE: diffutils changed to GPLv3 from version 2.9 thus the old version is used.
 Version: 2.8.1
 Release: 21
+License: GPLv2+
 Group: Applications/Text
 URL: http://www.gnu.org/software/diffutils/diffutils.html
 Source: ftp://ftp.gnu.org/gnu/diffutils/diffutils-%{version}.tar.gz
@@ -15,10 +17,6 @@ Patch1: diffutils-2.8.1-badc.patch
 Patch2: diffutils-sdiff.patch
 Patch3: diffutils-2.8.1-null.patch
 Patch4: diffutils-aarch64.patch
-License: GPLv2+
-Requires(post): /sbin/install-info
-Requires(preun): /sbin/install-info
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 %description
 Diffutils includes four utilities: diff, cmp, diff3 and sdiff. Diff
@@ -32,6 +30,15 @@ changes and warnings about conflicts.  The sdiff command can be used
 to merge two files interactively.
 
 Install diffutils if you need to compare text files.
+
+%package doc
+Summary:         Documentation for diff utilities
+Requires: %{name} = %{version}
+Requires(post):  /sbin/install-info
+Requires(preun): /sbin/install-info
+
+%description doc
+%{summary}.
 
 %prep
 %setup -q
@@ -61,23 +68,23 @@ make DESTDIR=$RPM_BUILD_ROOT install
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir
 %find_lang %{name}
 
-%post
+%post doc
 [ -e %{_infodir}/diff.info.gz ] && /sbin/install-info %{_infodir}/diff.info.gz %{_infodir}/dir --entry="* diff: (diff).                 The GNU diff."
 exit 0
 
-%preun
+%preun doc
 if [ $1 = 0 ]; then
     [ -e %{_infodir}/diff.info.gz ] && /sbin/install-info --delete %{_infodir}/diff.info.gz %{_infodir}/dir --entry="* diff: (diff).                 The GNU diff."
 fi
 exit 0
 
-%clean
-rm -rf $RPM_BUILD_ROOT
-
 %files -f %{name}.lang
 %defattr(-,root,root)
-%doc NEWS README
 %{_bindir}/*
+
+%files doc
+%defattr(-,root,root)
+%doc NEWS README
 %doc %{_mandir}/*/*
 %doc %{_infodir}/diff.info*gz
 
