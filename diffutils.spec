@@ -3,7 +3,7 @@ Summary: A GNU collection of diff utilities
 Name: diffutils
 # NOTE: diffutils changed to GPLv3 from version 2.9 thus the old version is used.
 Version: 2.8.1
-Release: 21
+Release: 23
 License: GPLv2+
 Group: Applications/Text
 URL: http://www.gnu.org/software/diffutils/diffutils.html
@@ -17,6 +17,7 @@ Patch1: diffutils-2.8.1-badc.patch
 Patch2: diffutils-sdiff.patch
 Patch3: diffutils-2.8.1-null.patch
 Patch4: diffutils-aarch64.patch
+Provides: gnu-diffutils
 
 %description
 Diffutils includes four utilities: diff, cmp, diff3 and sdiff. Diff
@@ -87,4 +88,3 @@ exit 0
 %doc NEWS README
 %doc %{_mandir}/*/*
 %doc %{_infodir}/diff.info*gz
-
