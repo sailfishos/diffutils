@@ -1,13 +1,14 @@
 #specfile originally created for Fedora, modified for Moblin Linux
+%define _name diffutils
 Summary: A GNU collection of diff utilities
-Name: diffutils
+Name: gnu-%{_name}
 # NOTE: diffutils changed to GPLv3 from version 2.9 thus the old version is used.
-Version: 2.8.1
-Release: 23
+Version: 2.8.1+git1
+Release: 0
 License: GPLv2+
 Group: Applications/Text
 URL: http://www.gnu.org/software/diffutils/diffutils.html
-Source: ftp://ftp.gnu.org/gnu/diffutils/diffutils-%{version}.tar.gz
+Source: diffutils-2.8.1.tar.gz
 Source1: cmp.1
 Source2: diff.1
 Source3: diff3.1
@@ -17,7 +18,8 @@ Patch1: diffutils-2.8.1-badc.patch
 Patch2: diffutils-sdiff.patch
 Patch3: diffutils-2.8.1-null.patch
 Patch4: diffutils-aarch64.patch
-Provides: gnu-diffutils
+Provides: %{_name} = 2.8.1+git1
+Obsoletes: %{_name} < 2.8.1+git1
 
 %description
 Diffutils includes four utilities: diff, cmp, diff3 and sdiff. Diff
@@ -35,6 +37,8 @@ Install diffutils if you need to compare text files.
 %package doc
 Summary:         Documentation for diff utilities
 Requires: %{name} = %{version}
+Provides: %{_name}-doc = 2.8.1+git1
+Obsoletes: %{_name}-doc < 2.8.1+git1
 Requires(post):  /sbin/install-info
 Requires(preun): /sbin/install-info
 
@@ -42,12 +46,7 @@ Requires(preun): /sbin/install-info
 %{summary}.
 
 %prep
-%setup -q
-%patch0 -p1 -b .i18n
-%patch1 -p1 -b .badc
-%patch2 -p1 -b .sdiff
-%patch3 -p1
-%patch4 -p1
+%autosetup -p1 -n diffutils-2.8.1
 
 %build
 %configure
@@ -67,7 +66,7 @@ make DESTDIR=$RPM_BUILD_ROOT install
 )
 
 rm -f $RPM_BUILD_ROOT%{_infodir}/dir
-%find_lang %{name}
+%find_lang %{_name}
 
 %post doc
 [ -e %{_infodir}/diff.info.gz ] && /sbin/install-info %{_infodir}/diff.info.gz %{_infodir}/dir --entry="* diff: (diff).                 The GNU diff."
@@ -79,7 +78,7 @@ if [ $1 = 0 ]; then
 fi
 exit 0
 
-%files -f %{name}.lang
+%files -f %{_name}.lang
 %defattr(-,root,root)
 %{_bindir}/*
 
