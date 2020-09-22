@@ -6,7 +6,6 @@ Name: gnu-%{_name}
 Version: 2.8.1+git1
 Release: 0
 License: GPLv2+
-Group: Applications/Text
 URL: http://www.gnu.org/software/diffutils/diffutils.html
 Source: diffutils-2.8.1.tar.gz
 Source1: cmp.1
