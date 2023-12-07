@@ -49,7 +49,10 @@ Requires(preun): /sbin/install-info
 
 %build
 %configure
-make PR_PROGRAM=%{_bindir}/pr
+
+# Remove -fcommon after package updated to a new enough version.
+# Used for allowing uninitialized global variables in a common block.
+make PR_PROGRAM=%{_bindir}/pr CFLAGS="-fcommon $RPM_OPT_FLAGS"
 
 %install
 rm -rf $RPM_BUILD_ROOT
