@@ -3,7 +3,7 @@
 Summary: A GNU collection of diff utilities
 Name: gnu-%{_name}
 # NOTE: diffutils changed to GPLv3 from version 2.9 thus the old version is used.
-Version: 2.8.1+git1
+Version: 2.8.1+git2
 Release: 0
 License: GPLv2+
 URL: http://www.gnu.org/software/diffutils/diffutils.html
