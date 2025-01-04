@@ -3,20 +3,15 @@
 Summary: A GNU collection of diff utilities
 Name: gnu-%{_name}
 # NOTE: diffutils changed to GPLv3 from version 2.9 thus the old version is used.
-Version: 2.8.1+git2
+Version: 3.10
 Release: 0
-License: GPLv2+
+License: GPLv3+
 URL: http://www.gnu.org/software/diffutils/diffutils.html
-Source: diffutils-2.8.1.tar.gz
+Source: diffutils-3.10.tar.xz
 Source1: cmp.1
 Source2: diff.1
 Source3: diff3.1
 Source4: sdiff.1
-Patch0: diffutils-2.8.4-i18n.patch
-Patch1: diffutils-2.8.1-badc.patch
-Patch2: diffutils-sdiff.patch
-Patch3: diffutils-2.8.1-null.patch
-Patch4: diffutils-aarch64.patch
 Provides: %{_name} = 2.8.1+git1
 Obsoletes: %{_name} < 2.8.1+git1
 
@@ -38,25 +33,20 @@ Summary:         Documentation for diff utilities
 Requires: %{name} = %{version}
 Provides: %{_name}-doc = 2.8.1+git1
 Obsoletes: %{_name}-doc < 2.8.1+git1
-Requires(post):  /sbin/install-info
-Requires(preun): /sbin/install-info
 
 %description doc
 %{summary}.
 
 %prep
-%autosetup -p1 -n diffutils-2.8.1
+%autosetup -p1 -n diffutils-3.10
 
 %build
 %configure
 
-# Remove -fcommon after package updated to a new enough version.
-# Used for allowing uninitialized global variables in a common block.
-make PR_PROGRAM=%{_bindir}/pr CFLAGS="-fcommon $RPM_OPT_FLAGS"
+%make_build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make DESTDIR=$RPM_BUILD_ROOT install
+%make_install
 
 ( cd $RPM_BUILD_ROOT
   gzip -9nf .%{_infodir}/diff*
@@ -67,7 +57,7 @@ make DESTDIR=$RPM_BUILD_ROOT install
   done
 )
 
-rm -f $RPM_BUILD_ROOT%{_infodir}/dir
+rm -Rf $RPM_BUILD_ROOT%{_infodir}
 %find_lang %{_name}
 
 %post doc
@@ -81,11 +71,8 @@ fi
 exit 0
 
 %files -f %{_name}.lang
-%defattr(-,root,root)
 %{_bindir}/*
 
 %files doc
-%defattr(-,root,root)
 %doc NEWS README
 %doc %{_mandir}/*/*
-%doc %{_infodir}/diff.info*gz
